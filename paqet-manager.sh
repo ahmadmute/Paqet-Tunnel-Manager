@@ -4,8 +4,13 @@
 # Paqet Tunnel Manager
 # Version: 3.8
 # Raw packet-level tunneling for bypassing network restrictions
-# GitHub: https://github.com/hanselime/paqet
-# Design and development by: https://github.com/behzadea12 - https://t.me/behzad_developer
+#
+# Project:  Paqet — https://github.com/hanselime/paqet
+# Idea &   Original Manager by behzadea12
+# Design:  https://github.com/behzadea12 | https://t.me/behzad_developer
+#
+# This fork maintained by: ahmadmute
+# https://github.com/ahmadmute/Paqet-Tunnel-Manager
 #=================================================
 
 # Colors
@@ -16,6 +21,8 @@ CYAN='\033[0;36m'
 BLUE='\033[0;34m'
 MAGENTA='\033[0;35m'
 WHITE='\033[1;37m'
+BOLD='\033[1m'
+DIM='\033[2m'
 NC='\033[0m'
 
 # Configuration
@@ -31,23 +38,24 @@ SERVICE_NAME="paqet"
 # Banner
 show_banner() {
     clear
-    echo -e "${MAGENTA}"
-    echo "╔══════════════════════════════════════════════════════════════╗"
-    echo "║                                                              ║"
-    echo "║     ██████╗  █████╗  ██████╗ ███████╗████████╗               ║"
-    echo "║     ██╔══██╗██╔══██╗██╔═══██╗██╔════╝╚══██╔══╝               ║"
-    echo "║     ██████╔╝███████║██║   ██║█████╗     ██║                  ║"
-    echo "║     ██╔═══╝ ██╔══██║██║▄▄ ██║██╔══╝     ██║                  ║"
-    echo "║     ██║     ██║  ██║╚██████╔╝███████╗   ██║                  ║"
-    echo "║     ╚═╝     ╚═╝  ╚═╝ ╚══▀▀═╝ ╚══════╝   ╚═╝                  ║"
-    echo "║                                                              ║"
-    echo "║          Raw Packet Tunnel - Firewall Bypass                 ║"
-    echo "║                                 Manager v3.8                 ║"
-    echo "║                                                              ║"
-    echo "║          https://t.me/behzad_developer                       ║"
-    echo "║          https://github.com/behzadea12                       ║"    
-    echo "║                                                              ║"
-    echo "╚══════════════════════════════════════════════════════════════╝"
+    echo -e "${CYAN}"
+    echo "  ╭───────────────────────────────────────────────────────────╮"
+    echo "  │                                                           │"
+    echo "  │   ${BOLD}██████╗  █████╗  ██████╗ ███████╗████████╗${NC}${CYAN}            │"
+    echo "  │   ██╔══██╗██╔══██╗██╔═══██╗██╔════╝╚══██╔══╝            │"
+    echo "  │   ██████╔╝███████║██║   ██║█████╗     ██║                │"
+    echo "  │   ██╔═══╝ ██╔══██║██║▄▄ ██║██╔══╝     ██║                │"
+    echo "  │   ██║     ██║  ██║╚██████╔╝███████╗   ██║                │"
+    echo "  │   ╚═╝     ╚═╝  ╚═╝ ╚══▀▀═╝ ╚══════╝   ╚═╝                │"
+    echo "  │                                                           │"
+    echo "  │   ${GREEN}Raw Packet Tunnel${NC} ${CYAN}·${NC} ${YELLOW}Firewall / DPI Bypass${NC} ${CYAN}·${NC} ${BOLD}v${SCRIPT_VERSION}${NC}${CYAN}   │"
+    echo "  │                                                           │"
+    echo "  │   ${DIM}── Maintained by ${BOLD}ahmadmute${NC}${DIM} ──${NC}${CYAN}                             │"
+    echo "  │   ${DIM}github.com/ahmadmute/Paqet-Tunnel-Manager${NC}${CYAN}                 │"
+    echo "  │                                                           │"
+    echo "  │   ${DIM}Based on Paqet (hanselime) · Manager by behzadea12${NC}${CYAN}     │"
+    echo "  │                                                           │"
+    echo "  ╰───────────────────────────────────────────────────────────╯"
     echo -e "${NC}"
 }
 
@@ -1727,30 +1735,32 @@ main_menu() {
     while true; do
         show_banner
         
-        echo -e "${YELLOW}Main Menu${NC}"
+        echo -e "  ${BOLD}${WHITE}▸ Main Menu${NC}"
+        echo -e "  ${DIM}─────────────────────────────────────────────────────────────${NC}"
         echo ""
         
         # Check if Paqet is installed
         if [ -f "$BIN_DIR/paqet" ]; then
-            echo -e "${GREEN}✓ Paqet is installed${NC}"
+            echo -e "  ${GREEN}●${NC} Paqet is installed"
         else
-            echo -e "${YELLOW}⚠ Paqet not installed${NC}"
+            echo -e "  ${YELLOW}●${NC} Paqet not installed"
         fi
-        
         echo ""
-        echo -e "${CYAN}0.${NC} Install Paqet Binary Only"
-        echo -e "${CYAN}1.${NC} Install Dependencies"
-        echo -e "${CYAN}2.${NC} Configure as Server (kharej)"
-        echo -e "${CYAN}3.${NC} Configure as Client (Iran)"
-        echo -e "${CYAN}4.${NC} List Services"
-        echo -e "${CYAN}5.${NC} Manage Service"
-        echo -e "${CYAN}6.${NC} View Configuration"
-        echo -e "${CYAN}7.${NC} Optimize Server"
-        echo -e "${CYAN}8.${NC} Uninstall Paqet"
-        echo -e "${CYAN}9.${NC} Exit"
+        echo -e "  ${CYAN}0.${NC} Install Paqet Binary Only"
+        echo -e "  ${CYAN}1.${NC} Install Dependencies"
+        echo -e "  ${CYAN}2.${NC} Configure as Server (Kharej)"
+        echo -e "  ${CYAN}3.${NC} Configure as Client (Iran)"
+        echo -e "  ${CYAN}4.${NC} List Services"
+        echo -e "  ${CYAN}5.${NC} Manage Service"
+        echo -e "  ${CYAN}6.${NC} View Configuration"
+        echo -e "  ${CYAN}7.${NC} Optimize Server"
+        echo -e "  ${CYAN}8.${NC} Uninstall Paqet"
+        echo -e "  ${CYAN}9.${NC} Exit"
+        echo ""
+        echo -e "  ${DIM}─────────────────────────────────────────────────────────────${NC}"
         echo ""
         
-        read -p "Select option [0-9]: " choice
+        read -p "  Select option [0-9]: " choice
         
         case $choice in
             0)
